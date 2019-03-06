@@ -6,7 +6,7 @@ All the content, codes, and dependencies files used in workshops
 - ##### Arduino Nano
 - ##### Analog vs digital
 - ##### Interfacing Arduino : Software
-- 
+
 ### [Day2](https://github.com/ieee-student-branch-dit-university/embedx19/tree/master/Day2/):
 - ##### Button
 - ##### Serial Monitor
@@ -14,5 +14,11 @@ All the content, codes, and dependencies files used in workshops
 - ##### Servo motor
 - ##### Ultrasonic sensor
 - ##### LDR
+
+
+
+## References : 
+- [Arduino IDE](https://www.arduino.cc/en/main/software)
+- [Arduino Fundamental](https://www.arduino.cc/en/Tutorial/HomePage)
 
 
