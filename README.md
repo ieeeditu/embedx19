@@ -3,7 +3,7 @@
 All the content, codes, and dependencies files used in workshops
 
 
-## Schedule : 
+## Schedule: 
 ### [Day1](https://github.com/ieee-student-branch-dit-university/embedx19/tree/master/Day1/):
 - ##### Microprocessors Vs Microcontrollers
 - ##### Arduino Nano
@@ -20,7 +20,7 @@ All the content, codes, and dependencies files used in workshops
 
 
 
-## References : 
+## References: 
 - [Arduino IDE](https://www.arduino.cc/en/main/software)
 - [Arduino Fundamental](https://www.arduino.cc/en/Tutorial/HomePage)
 
