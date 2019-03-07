@@ -18,6 +18,11 @@ All the content, codes, and dependencies files used in workshops
 - ##### Ultrasonic sensor
 - ##### LDR
 
+### [Day3](https://github.com/ieee-student-branch-dit-university/embedx19/tree/master/Day3/)
+- ##### Introduction to IoT
+- ##### Networking
+- ##### Protocols
+- ##### MQTT
 
 
 ## References: 
