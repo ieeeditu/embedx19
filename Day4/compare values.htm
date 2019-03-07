@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title> Comparision of numbers </title>
+
+<SCRIPT language=javascript>
+function findord() {
+var a=parseInt(frm.n1.value);
+var b=parseInt(frm.n2.value);
+var c=parseInt(frm.n3.value);
+var d=parseInt(frm.n4.value);
+
+a1=(a>b&&a>c&&a>d)?a:(b>c&&b>d)?b:(c>d)?c:d;
+
+a2=(a>b&&a>c&&a<d || a>b&&a>d&&a<c || a>c&&a>d&&a<b)?a:(b>a&&b>c&&b<d || b>a&&b>d&&b<c || 
+b>c&&b>d&&b<a)?b:(c>b&&c>a&&c<d || c>b&&c>d&&c<a || c>a&&c>d&&c<b)?c:d;
+
+a3=(a<b&&a<c&&a>d || a<b&&a<d&&a>c || a<c&&a<d&&a>b)?a:(b<a&&b<c&&b>d || b<a&&b<d&&b>c || 
+b<c&&b<d&&b>a)?b:(c<b&&c<a&&c>d || c<b&&c<d&&c>a || c<a&&c<d&&c>b)?c:d;
+
+a4=(a<b&&a<c&&a<d)?a:(b<c&&b<d)?b:(c<d)?c:d;
+
+frm.ass.value= a4+"<"+a3+"<"+a2+"<"+a1;
+frm.des.value=a1+">"+a2+">"+a3+">"+a4;
+}
+</SCRIPT>
+
+</head>
+
+
+<H2 align= "center " > <B><U> COMPARE NUMBERS </U></B> </H2>
+<FORM NAME=frm>
+<TABLE align=center ;background=blue >
+<TR> <TD>First Number :<TD> <INPUT TYPE=text NAME=n1 ID=n1><BR></TR>
+<TR><TD>Second Number : <TD><INPUT TYPE=text NAME=n2 ID=n2><BR></TR>
+<TR><TD>Third Number :<TD> <INPUT TYPE=text NAME=n3 ID=n3><BR></TR>
+<TR><TD>Forth Numer : <TD><INPUT TYPE= text NAME=n4 ID=n4><BR></TR>
+<TR align=center><TD ><INPUT TYPE=button VALUE=Find Order Onclick=findord()></TR>
+<BR>
+<TR><TD>Assending order: <TD><INPUT TYPE=text NAME=ass ID=ass><BR></TR>
+<TR><TD>Desending order :<TD> <INPUT TYPE=text NAME=des ID=des><BR></TR>
+</FORM>
+</html>
+
+
+
+

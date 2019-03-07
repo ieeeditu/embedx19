@@ -1,0 +1,46 @@
+<H1>Calculate Age (Looping Version)</H1>
+
+Select Date Of Birth : <SELECT NAME=dd ID=dd>
+<SCRIPT>
+var i=0;
+while(i++<31) {document.write("<OPTION VALUE="+i+">"+i+"</OPTION>");}
+</SCRIPT>
+</SELECT>
+
+<SELECT NAME=mm ID=mm>
+<SCRIPT>
+var i=0;
+while(i++<12) {document.write("<OPTION VALUE="+i+">"+i+"</OPTION>");}
+</SCRIPT>
+</SELECT>
+
+<SELECT NAME=yy ID=yy>
+<SCRIPT>
+var i=1990;
+while(i++<2015) {document.write("<OPTION VALUE="+i+">"+i+"</OPTION>");}
+</SCRIPT>
+</SELECT>
+<INPUT TYPE=button VALUE='SHOW AGE' onclick=showAge()><BR>
+Age On (
+<SCRIPT> var d=new Date();document.write(d.getDate()+"-"+(d.getMonth()+1)+"-"+d.getFullYear());</SCRIPT>
+) : <INPUT TYPE=text NAME=todayAge ID=todayAge SIZE=50>
+
+
+<SCRIPT LANGUAGE=javascript>
+function showAge() {
+var dd1=parseInt(dd.value);
+var mm1=parseInt(mm.value);
+var yy1=parseInt(yy.value);
+var dt=new Date();
+dd2=dt.getDate();
+mm2=dt.getMonth()+1;
+yy2=dt.getFullYear();
+d=dd2-dd1;
+m=mm2-mm1;
+y=yy2-yy1;
+if(d<0){d+=30;m-=1;}
+if(m<0){m+=12;y-=1};
+var age=y+" Years, "+m+" Months, "+d+" Days.";
+todayAge.value=age;
+}
+</SCRIPT>
