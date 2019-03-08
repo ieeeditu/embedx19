@@ -1,8 +1,9 @@
 #include <ESP8266WiFi.h>
-
-const char* ssid = "........";
-const char* password = "........";
-const char* mqtt_server = "broker.mqtt-dashboard.com";
+#include <PubSubClient.h>
+#define LED D0
+const char* ssid = "Honor 6X";
+const char* password = "wifikapassword";
+const char* mqtt_server = "broker.hivemq.com";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -34,6 +35,7 @@ void setup_wifi() {
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
+
   Serial.print("Message arrived [");
   Serial.print(topic);
   Serial.print("] ");
@@ -44,13 +46,10 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
   // Switch on the LED if an 1 was received as first character
   if ((char)payload[0] == '1') {
-    digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
-    // but actually the LED is on; this is because
-    // it is active low on the ESP-01)
+    digitalWrite(LED, HIGH);
   } else {
-    digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
+    digitalWrite(LED, LOW);
   }
-
 }
 
 void reconnect() {
@@ -58,15 +57,12 @@ void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     // Create a random client ID
-    String clientId = "ESP8266Client-";
+    String clientId = "EMBEDX_HOST-";
     clientId += String(random(0xffff), HEX);
     // Attempt to connect
     if (client.connect(clientId.c_str())) {
       Serial.println("connected");
-      // Once connected, publish an announcement...
-      client.publish("outTopic", "hello world");
-      // ... and resubscribe
-      client.subscribe("inTopic");
+      client.subscribe("EmbedX19/Led");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -78,7 +74,7 @@ void reconnect() {
 }
 
 void setup() {
-  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  pinMode(LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
   Serial.begin(115200);
   setup_wifi();
   client.setServer(mqtt_server, 1883);
@@ -90,15 +86,12 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }
-  client.loop();
-
-  long now = millis();
-  if (now - lastMsg > 2000) {
-    lastMsg = now;
-    ++value;
-    snprintf (msg, 50, "hello world #%ld", value);
-    Serial.print("Publish message: ");
-    Serial.println(msg);
-    client.publish("outTopic", msg);
+  String msg;
+  if (Serial.available() > 0) {
+    msg = Serial.readString();
+    char  fmsg[50];
+    msg.toCharArray(fmsg, 50);
+    client.publish("EmbedX19/Rec", fmsg );
   }
+  client.loop();
 }

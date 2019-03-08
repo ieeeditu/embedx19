@@ -1,10 +1,9 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
-#include <ESP8266mDNS.h>
 
 #ifndef STASSID
-#define STASSID "Honor 6X"
+#define STASSID "BOSE"
 #define STAPSK  "wifikapassword"
 #endif
 
@@ -22,7 +21,7 @@ void setup(void) {
   digitalWrite(LED, 0);
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid);
   Serial.println("");
 
   // Wait for connection
@@ -35,13 +34,8 @@ void setup(void) {
   Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
-
-  if (MDNS.begin("esp8266")) {
-    Serial.println("MDNS responder started");
-  }
-
+  
   server.on("/", handleRoot);
-
   server.on("/inline", []() {
     server.send(200, "text/plain", "this works as well");
   });
