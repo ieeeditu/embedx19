@@ -2,8 +2,8 @@
 #include <WiFiClient.h>
 
 #ifndef APSSID
-#define APSSID "EmbedX-Esp"
-#define APPSK  "12345"
+#define APSSID "EmbedX-ESPWifFi"
+#define APPSK  "therther"
 #endif
 
 /* Set these to your desired credentials. */
@@ -15,11 +15,13 @@ void setup() {
   Serial.begin(115200);
   Serial.println();
   Serial.print("Configuring access point...");
+  /* You can remove the password parameter if you want the AP to be open. */
   WiFi.softAP(ssid, password);
+
   IPAddress myIP = WiFi.softAPIP();
   Serial.print("AP IP address: ");
   Serial.println(myIP);
-}
+  }
 
 void loop() {
-}
+  }

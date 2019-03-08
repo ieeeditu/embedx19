@@ -1,12 +1,7 @@
 #include <ESP8266WiFi.h>
 
-const char* ssid = "........";
-const char* password = "........";
-const char* mqtt_server = "broker.hivemq.com";
-
-long lastMsg = 0;
-char msg[50];
-int value = 0;
+const char* ssid = "EmbedX";
+const char* password = "wififoun";
 
 void setup_wifi() {
 
@@ -29,7 +24,6 @@ void setup_wifi() {
 }
 
 void setup() {
-  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
   Serial.begin(115200);
   setup_wifi();
 }
