@@ -36,8 +36,14 @@ All the content, codes, and dependencies files used in workshops
    - Web-Server on NodeMCU
    - MQTT Client
    - [WiFi Deauther](https://github.com/spacehuhn/esp8266_deauther)
+   
+### Speaker
+- [Himanshu Kotnala](https://www.linkedin.com/in/aker99/)
+- [Nishchay Singh Mukhtawat](https://www.linkedin.com/in/nishchaysm/)
+- [Neelesh Raina](https://www.linkedin.com/in/neelesh-raina-678461190/)
+- [Jay Patel](https://www.linkedin.com/in/jay13patel/)
 
-## References: 
+### References: 
 - ### Arduino : 
   - [Arduino IDE](https://www.arduino.cc/en/main/software)
   - [Arduino Fundamental](https://www.arduino.cc/en/Tutorial/HomePage)
